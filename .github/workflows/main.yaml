@@ -7,11 +7,11 @@ on:
 jobs:
   npm-cache:
     name: 'NPM cache'
-    id: setup
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
+      id: setup
       with:
         node-version: '14'
         cache: 'npm'
