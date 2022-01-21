@@ -30,3 +30,7 @@ jobs:
 
     - name: Run Tests
       run: npm test
+  test2:
+    - name: Test something
+      if: steps.node-cache.outputs.cache-hit != 'true'
+        echo 'hello!'
