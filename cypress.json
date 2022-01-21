@@ -1,0 +1,13 @@
+{
+    "reporter": "junit", 
+    "reporterOptions": {
+        "mochaFile": "reports/cypress-test-output.xml", 
+        "toConsole": true
+    }, 
+    "chromeWebSecurity": false ,
+    "modifyObstructiveCode": false,
+    "retries": {
+        "runMode": 2,
+        "openMode": 0
+    }
+}

@@ -4,7 +4,7 @@
   "description": "Testing how to cache node_modules on npm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run"
   },
   "author": "",
   "license": "ISC",
