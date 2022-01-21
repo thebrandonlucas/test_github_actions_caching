@@ -1,3 +1,10 @@
+
+name: Test NPM Caching
+on:
+  push:
+    branches:
+    - main
+
 steps:
 - uses: actions/checkout@v2
 - uses: actions/setup-node@v2
