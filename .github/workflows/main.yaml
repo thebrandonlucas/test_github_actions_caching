@@ -5,19 +5,26 @@ on:
     branches:
     - main
 jobs:
-  npm-cache:
-    name: 'NPM cache'
+  build:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      id: setup
+    
+    - name: Setup Node
+      uses: actions/setup-node@v1
       with:
-        node-version: '14'
-        cache: 'npm'
-    - if: steps.setup.outputs.cache-hit != 'true'
+        node-version: 14.x
+
+    - name: Cache node_modules
+      id: node-cache
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+
+    - name: Install Dependencies
+      if: steps.node-cache.outputs.cache-hit != 'true'
       run: npm install
-    # - run: npm test
 
-
-    # -539, 28, -396
+    - name: Run Tests
+      run: npm test
