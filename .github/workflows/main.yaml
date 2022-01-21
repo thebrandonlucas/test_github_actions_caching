@@ -35,5 +35,5 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v2
-    if: steps.node-cache.outputs.cache-hit != 'true'
+    if: build.steps.node-cache.outputs.cache-hit != 'true'
       echo 'hello!'
