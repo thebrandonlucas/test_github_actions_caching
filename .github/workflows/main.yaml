@@ -28,9 +28,12 @@ jobs:
       if: steps.node-cache.outputs.cache-hit != 'true'
       run: npm install
 
-    - name: Run Tests
-      run: npm test
+    # - name: Run Tests
+    #   run: npm test
   test2:
-    - name: Test something
-      if: steps.node-cache.outputs.cache-hit != 'true'
-        echo 'hello!'
+    name: Test referencing
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v2
+    if: steps.node-cache.outputs.cache-hit != 'true'
+      echo 'hello!'
