@@ -32,8 +32,8 @@ jobs:
     #   run: npm test
   test2:
     name: Test referencing
-    runs-on: 'ubuntu-latest'
+    needs: build
     steps:
     - uses: actions/checkout@v2
-    if: build.steps.node-cache.outputs.cache-hit != 'true'
-      echo 'hello!'
+    if: jobs.build.steps.node-cache.outputs.cache-hit != 'true'
+    run: echo 'hello!'
