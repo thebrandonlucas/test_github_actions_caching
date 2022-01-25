@@ -34,7 +34,7 @@ jobs:
     needs: init
     steps:
     - uses: actions/checkout@v2
-    - name: Restore dependencies
+    - name: Restore Dependencies
       id: node-cache
       uses: actions/cache@v2
       with:
