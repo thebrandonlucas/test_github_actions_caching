@@ -35,6 +35,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Cypress
-      if: needs.build.steps.node-cache.outputs.cache-hit != 'true'
+      if: needs.build.steps.node-cache.outputs.cache-hit == 'true'
       run: |
         npx cypress run
