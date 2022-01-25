@@ -5,15 +5,15 @@ on:
     branches:
     - main
 jobs:
-  build:
+  init:
     runs-on: 'ubuntu-latest'
     steps:
     - uses: actions/checkout@v2
 
-    # - name: Setup Node
-    #   uses: actions/setup-node@v1
-    #   with:
-    #     node-version: 14.x
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
 
     - name: Cache node_modules
       id: node-cache
@@ -30,7 +30,7 @@ jobs:
 
     # - name: Run Tests
     #   run: npm test
-  test2:
+  test:
     name: Test referencing
     runs-on: 'ubuntu-latest'
     needs: build
